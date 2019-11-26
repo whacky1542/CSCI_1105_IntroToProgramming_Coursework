@@ -12,7 +12,7 @@ public class Exercise5_11 {
 		
 		while (number < 201) {
 			while ((count < 10) && (number < 201)) {
-				if ((number < 201) && (number % 5 == 0) ^ (number % 6 == 0)) {
+				if ((number % 5 == 0) ^ (number % 6 == 0)) {
 					System.out.print(number + " ");
 					count++;
 				}

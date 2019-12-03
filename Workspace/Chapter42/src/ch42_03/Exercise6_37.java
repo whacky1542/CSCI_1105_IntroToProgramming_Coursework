@@ -5,6 +5,8 @@ Date: 11-28-2019
 Outputs a formatted string based on a base number and width 
 entered by the user.
 */
+package ch42_03;
+
 import java.util.Scanner;
 
 public class Exercise6_37 {

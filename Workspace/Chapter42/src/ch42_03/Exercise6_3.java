@@ -4,6 +4,8 @@ Date: 11-28-2019
 
 Determines whether or not the entered number is a palindrome.
 */
+package ch42_03;
+
 import java.util.Scanner;
 
 public class Exercise6_3 {

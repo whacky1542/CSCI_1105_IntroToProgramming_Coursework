@@ -15,31 +15,21 @@ public class Exercise7_23 {
 	public static void main(String[] args) {
 		boolean[] lockers = new boolean[100];
 		
-		closeAllLockers(lockers);
 		gameStart(lockers);
 		printOpen(lockers);
 	}
 	
-	public static void closeAllLockers(boolean[] lockers) {
-		for (int i = 0; i < 100; i++)
-			lockers[i] = false;
-	}
-	
 	public static void gameStart(boolean[] lockers) {
+		// Students
 		for (int a = 1; a <= 100; a++) {
-			for (int b = 0; b < 100; b += a) {
-				if (lockers[b])
-					lockers[b] = false;
+			// Lockers
+			for (int b = a; b <= 100; b += a) {
+				if (lockers[b - 1])
+					lockers[b - 1] = false;
 				else
-					lockers[b] = true;
+					lockers[b - 1] = true;
 			}
 		}
-		
-		// To compensate for the inability for the above for loops of processing lockers[99]
-		if (lockers[99])
-			lockers[99] = false;
-		else
-			lockers[99] = true;
 	}
 	
 	public static void printOpen(boolean[] lockers) {

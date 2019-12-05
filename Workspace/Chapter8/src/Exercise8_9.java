@@ -18,12 +18,7 @@ public class Exercise8_9 {
 		
 		// Play the game
 		while (checkForWinner(board) == 0) {
-			printBoard(board);
-			playerPromptX(board, input);
-			if (checkForWinner(board) == 0) {
-				printBoard(board);
-				playerPromptO(board, input);
-			}
+			playerPrompt(board, input);
 		}
 		
 		printBoard(board);
@@ -55,7 +50,8 @@ public class Exercise8_9 {
 		System.out.println("-------------");
 	}
 	
-	public static void playerPromptX(String[][] board, Scanner input) {
+	public static void playerPrompt(String[][] board, Scanner input) {
+		printBoard(board);
 		int x = 0;
 		int y = 0;
 		
@@ -69,22 +65,23 @@ public class Exercise8_9 {
 		} while (board[y][x].equals("x") || board[y][x].equals("o"));
 		
 		board[y][x] = "x";
-	}
-	
-	public static void playerPromptO(String[][] board, Scanner input) {
-		int x = 0;
-		int y = 0;
 		
-		do {
-			System.out.print("Player O, enter coordinate x: ");
-			x = input.nextInt();
-			System.out.print("Player O, enter coordinate y: ");
-			y = input.nextInt();
-			if (board[y][x].equals("x") || board[y][x].equals("o"))
-				System.out.println("Coordinates taken.");
-		} while (board[y][x].equals("x") || board[y][x].equals("o"));
-		
-		board[y][x] = "o";
+		if (checkForWinner(board) == 0) {
+			printBoard(board);
+			x = 0;
+			y = 0;
+			
+			do {
+				System.out.print("Player O, enter coordinate x: ");
+				x = input.nextInt();
+				System.out.print("Player O, enter coordinate y: ");
+				y = input.nextInt();
+				if (board[y][x].equals("x") || board[y][x].equals("o"))
+					System.out.println("Coordinates taken.");
+			} while (board[y][x].equals("x") || board[y][x].equals("o"));
+			
+			board[y][x] = "o";
+		}
 	}
 	
 	public static int checkForWinner(String[][] board) {

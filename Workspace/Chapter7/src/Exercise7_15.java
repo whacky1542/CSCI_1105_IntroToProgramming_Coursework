@@ -18,31 +18,31 @@ public class Exercise7_15 {
 		int[] distinct = eliminateDuplicates(numbers);
 		
 		System.out.print("The distinct numbers are: ");
-		for (int i = 0; i < distinct[10]; i++)
+		for (int i = 0; i < distinct.length; i++)
 			System.out.print(distinct[i] + " ");
 	}
 	
 	public static int[] eliminateDuplicates(int[] list) {
-		int[] temp = new int[11];
 		int count = 1;
 		
-		for (int a = 0; a < list.length; a++)
-			temp[a] = list[a];
-		
-		for (int a = 1; a < temp.length; a++) {
+		for (int a = 1; a < list.length; a++) {
 			for (int b = 0; b < a; b++) {
-				if (temp[a] == temp[b]) {
+				if (list[a] == list[b]) {
 					b = a;
 					count--;
 				}
 				else if (count == b) {
-					temp[count] = temp[a];
+					list[count] = list[a];
 				}
 			}
 			count++;
 		}
 		
-		temp[10] = count - 1;
+		int[] temp = new int[count];
+		
+		for (int i = 0; i < list[count - 1]; i++) {
+			temp[i] = list[i];
+		}
 		
 		return temp;
 	}

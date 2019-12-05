@@ -40,7 +40,7 @@ public class Exercise7_15 {
 		
 		int[] temp = new int[count];
 		
-		for (int i = 0; i < list[count - 1]; i++) {
+		for (int i = 0; i < count; i++) {
 			temp[i] = list[i];
 		}
 		
